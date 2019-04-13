@@ -8,7 +8,7 @@ def home():
         #Get the command
         try:
             command=request.form['command']
-            dangerous=["rm",":&}","command","mv","wget","Mkfs",">","^","dd","su","sudo","*","bash","zsh","chmod","sh","ssh"]
+            dangerous=["rm",":&}","command","mv","wget","Mkfs",">","^","dd","su","sudo","*","bash","zsh","chmod","sh","ssh","bin"]
             for danger in dangerous:
                 if (danger in command):
                       return render_template("home.html", output="We caught you doing something stupid and dangerous! <br/> Don't do it again or else ...")

@@ -12,7 +12,7 @@ def home():
             for danger in dangerous:
                 if (danger in command):
                       return render_template("home.html", output="We caught you doing something stupid and dangerous! <br/> Don't do it again or else ...")
-            output=subprocess.run(command.split() ,  stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=0.01)
+            output=subprocess.check_output(command.split() ,  stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=0.01)
             output=output.stdout.decode('utf-8')
             output=output.split("\n")[::-1]
             final=""
